@@ -41,4 +41,3 @@ From the root directory, install gems by running `bundle`.  Enter `sudo` passwor
 * Run `ruby download_metadata.rb`.  This gathers all the `EXIF` information for the images and writes them to an appropriate folder under metadata
 
 
-
