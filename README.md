@@ -34,7 +34,7 @@ Install `exiftool` by following instructions in https://exiftool.org/
 
 From the root directory, install gems by running `bundle`.  Enter `sudo` password if asked for.
 
-## Workflow
+# Workflow
 
 * Edit `main/backend/constants.rb` and update the paths 
 * Run `ruby prepare_directories.rb`.  This creates the directory structure under `#{METADATA_FOLDER}` based on your `#{RAW_FOLDERS}` and generates a `image_list.json` that contains all the images to scan
