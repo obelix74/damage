@@ -16,18 +16,21 @@ files.each do |file|
 	else
 		pool.post do
 			p "Fetching metadata for #{file}"
-   			photo = MiniExiftool.new File.expand_path file
+			begin
+	   			photo = MiniExiftool.new File.expand_path file
+	   			p "Writing metadata to file #{metadata_file}"
 
-   			tags = {}
-			photo.tags.sort.each do |tag|
-				tags[tag] = photo[tag]
+	   			tags = {}
+				photo.tags.each do |tag|
+					tags[tag] = photo[tag]
+				end
+
+	   			File.open metadata_file, 'w' do |file|
+					file.write tags.to_json
+				end
+			rescue exception
+				p "Error fetching EXIF for #{file}"
 			end
-
-   			p "Writing metadata to file #{metadata_file}"
-   			File.open metadata_file, 'w' do |file|
-				file.write tags.to_json
-			end
-
 		end		
 	end
 end
