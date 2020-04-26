@@ -22,6 +22,7 @@
 
 * It won't update your original RAW files unless you ask for it
 * It is not standards compliant with `XMP` and that support will not be added 
+* This is not a polished product. It is a collection of scripts and a Javascript library.  You have to run scripts by hand and open the JS in a browser
 
 # Required libraries
 
@@ -35,9 +36,9 @@ From the root directory, install gems by running `bundle`.  Enter `sudo` passwor
 
 ## Workflow
 
-### Edit `main/backend/constants.rb` and update the paths 
-### Run `ruby prepare_directories.rb`.  This creates the directory structure under `#{METADATA_FOLDER}` based on your `#{RAW_FOLDERS}` and generates a `image_list.json` that contains all the images to scan
-### Run `ruby download_metadata.rb`.  This gathers all the `EXIF` information for the images and writes them to an appropriate folder under metadata
+* Edit `main/backend/constants.rb` and update the paths 
+* Run `ruby prepare_directories.rb`.  This creates the directory structure under `#{METADATA_FOLDER}` based on your `#{RAW_FOLDERS}` and generates a `image_list.json` that contains all the images to scan
+* Run `ruby download_metadata.rb`.  This gathers all the `EXIF` information for the images and writes them to an appropriate folder under metadata
 
 
 
