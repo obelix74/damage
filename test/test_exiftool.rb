@@ -1,9 +1,9 @@
 require 'mini_exiftool'
 
 current_dir = File.expand_path(File.dirname(File.dirname(__FILE__)))
-#photo = MiniExiftool.new current_dir + '/test.NEF'
 begin
-	photo = MiniExiftool.new "/Volumes/Pictures/2010/10/01/DSC_0555_6_7_8_9.tif"
+	#photo = MiniExiftool.new "/Volumes/Pictures/2010/10/01/DSC_0555_6_7_8_9.tif"
+	photo = MiniExiftool.new current_dir + '/test.NEF'
 rescue => exception	
 	p exception.backtrace
 	raise

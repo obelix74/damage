@@ -12,11 +12,17 @@ RAW_FOLDERS.each do |folder|
 	 	p "Directory: #{path}"
 	 	if !path.to_s.match(/Cache|Settings|Trash|Output|Selects|CaptureOne/i)
 		 	metadata_folder = METADATA_FOLDER + folder + '/' + path.to_s
+		 	thumbnails_folder = THUMBNAILS_FOLDER + folder + '/' + path.to_s
 		 	original_folder = folder + "/#{path}"
 	 		
 	 		unless File.directory?(metadata_folder) 
-	 			p "Creating folder: #{metadata_folder}"
+	 			p "Creating metadata folder: #{metadata_folder}"
 		 		FileUtils.mkdir_p metadata_folder, mode: 0755 
+	 		end
+
+	 		unless File.directory?(thumbnails_folder) 
+	 			p "Creating thumbnails folder: #{thumbnails_folder}"
+		 		FileUtils.mkdir_p thumbnails_folder, mode: 0755 
 	 		end
 
 	 		p "Chdir to #{original_folder}"

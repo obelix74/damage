@@ -26,9 +26,12 @@
 
 # Required libraries
 
-## Exiftool
+Assumes `Mac OSX`
 
-Install `exiftool` by following instructions in https://exiftool.org/
+* Install `exiftool` by following instructions in https://exiftool.org/
+* Install `homebrew` https://brew.sh/
+* Install `libmagic` by `brew install libmagic`
+* Install `ImageMagick` by `brew install pkg-config imagemagick ufraw`
 
 ## Ruby gems
 
