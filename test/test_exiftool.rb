@@ -19,12 +19,12 @@ else
 	end
 end
 
-# p photo.title
-# photo.description = "This is a test image"
-# photo.categories = "category1, category2"
-# photo.keywords = "keyword1, keyword2"
-
-# photo.save
+p photo.title
+photo.description = "This is a test image"
+photo.categories = "category1, category2"
+photo.keywords = "keyword1, keyword2"
+photo.rating = "5"
+photo.save
 
 File.open current_dir + '/test.NEF.json', 'w' do |file|
 	file.write tags.to_json

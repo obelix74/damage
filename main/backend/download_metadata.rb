@@ -1,5 +1,5 @@
 current_dir = File.expand_path(File.dirname(File.dirname(__FILE__)))
-require current_dir + '/constants'
+require current_dir + '/../../config/constants'
 require 'concurrent'
 require 'mini_exiftool'
 require 'json'

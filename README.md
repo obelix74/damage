@@ -32,6 +32,9 @@ Assumes `Mac OSX`
 * Install `homebrew` https://brew.sh/
 * Install `libmagic` by `brew install libmagic`
 * Install `ImageMagick` by `brew install pkg-config imagemagick ufraw`
+* Install `ElasticSearch` https://www.elastic.co/downloads/elasticsearch
+	* Move the `elasticsearch` directory to `/usr/local` and add `/usr/local/elasticsearch-7.6.2/bin` to path
+	* Start `elasticsearch` by running `/usr/local/elasticsearch-7.6.2/bin/elasticsearch`. Figure out all the crappy Catalina security issues
 
 ## Ruby gems
 
@@ -39,8 +42,9 @@ From the root directory, install gems by running `bundle`.  Enter `sudo` passwor
 
 # Workflow
 
-* Edit `main/backend/constants.rb` and update the paths 
-* Run `ruby prepare_directories.rb`.  This creates the directory structure under `#{METADATA_FOLDER}` based on your `#{RAW_FOLDERS}` and generates a `image_list.json` that contains all the images to scan
-* Run `ruby download_metadata.rb`.  This gathers all the `EXIF` information for the images and writes them to an appropriate folder under metadata
+* Edit `config/constants.rb` and update the paths 
+* Run `ruby prepare_directories.rb`.  This creates the directory structure under `#{METADATA_FOLDER}` and `#{THUMBNAILS_FOLDER}` based on your `#{RAW_FOLDERS}` and generates a `image_list.json` that contains all the images to scan
+* Run `ruby download_metadata.rb`.  This gathers all the `EXIF` information for the images and writes them to an appropriate folder under metadata.  This needs the `image_list.json` file generated in the `prepare_directories` step
+* Run `ruby create_thumbnails.rb`. This generates a 512 x 512 thumbnail for all your raw images and writes them under `#{THUMBNAILS_FOLDER}`
 
 

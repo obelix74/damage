@@ -6,3 +6,6 @@ gem 'ruby-filemagic'
 gem 'concurrent-ruby'
 gem 'json'
 gem 'rmagick'
+gem 'elasticsearch'
+gem 'elasticsearch-extensions'
+gem "typhoeus"
