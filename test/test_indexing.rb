@@ -1,40 +1,14 @@
 current_dir = File.expand_path(File.dirname(File.dirname(__FILE__)))
 require current_dir + '/../config/constants'
 require current_dir + '/../config/elasticsearch'
-require 'json'
-require 'date'
+require current_dir + '/../main/backend/index_helper'
 
-METADATA = JSON.parse(File.read(current_dir + '/test.NEF.json'), symbolize_names: true).freeze
+include IndexHelper
 
-serialized_data = {}
-
-serialized_data[:thumbnail] = current_dir + '/test.NEF.png'
-serialized_data[:title] = METADATA[:Title]
-serialized_data[:categories] = METADATA[:Categories]
-serialized_data[:keywords] = METADATA[:Keywords]
-serialized_data[:description] = METADATA[:Description]
-serialized_data[:rating] = METADATA[:Rating]
-serialized_data[:fileType] = METADATA[:FileType]
-serialized_data[:model] = METADATA[:Model]
-serialized_data[:shutterSpeed] = METADATA[:ShutterSpeed].to_r.to_f if(METADATA[:ShutterSpeed])
-serialized_data[:aperture] = METADATA[:Aperture]
-serialized_data[:iso] = METADATA[:ISO]
-
-if (METADATA[:CreateDate])
-	date = Date.strptime(METADATA[:CreateDate], "%Y-%m-%d %H:%M:%s")
-	serialized_data[:createDate] = date
-end
-serialized_data[:focalLength] = METADATA[:FocalLength]
-
-if (METADATA[:Lens])
-	serialized_data[:lens] = METADATA[:lens]
-elsif (METADATA[:LensModel])
-	serialized_data[:lens] = METADATA[:LensModel]
-end
-
+serialized_data = generate_index_data(THUMBNAILS_FOLDER, current_dir + '/test.NEF.json')
 p 'Indexing...'
-SearchClient.index(id: METADATA[:id], index: "damage", body: serialized_data)
-get_result = SearchClient.get(id: METADATA[:id], index: "damage") 
+SearchClient.index(id: serialized_data[:id], index: "damage", body: serialized_data)
+get_result = SearchClient.get(id: serialized_data[:id], index: "damage") 
 raise "Get result is wrong" if get_result.empty?
 
 results = SearchClient.search(
@@ -42,7 +16,7 @@ results = SearchClient.search(
 	body: {
 		query: {
 			query_string: {
-				query: "categories:CATEG*",
+				query: "lens:SIGMA*",
 				analyze_wildcard: true,
 				allow_leading_wildcard: false
 			}
@@ -50,7 +24,8 @@ results = SearchClient.search(
 		sort: { rating: "desc"}
 	}
 	)
-p "Search results:"
+
+p "Search results for lens:"
 p "----------------------------------------------------"
 hits = results.dig("hits", "hits").map { |tag_doc| tag_doc.dig("_source") }
 p hits.inspect
