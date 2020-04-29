@@ -58,6 +58,7 @@ files.each do |file|
 				unique_shutterSpeed.add(serialized_data[:shutterSpeed])
 				unique_aperture.add(serialized_data[:aperture])
 				unique_iso.add(serialized_data[:iso])
+				unique_focalLength.add(serialized_data[:focalLength])
 
 			rescue => exception
 				p "Error creating index for #{metadata_file}"
