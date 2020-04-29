@@ -60,3 +60,8 @@ From the root directory, install gems by running `bundle`.  Enter `sudo` passwor
 ## Creating metadata indices
 * Run `ruby create_index.rb` to load the metadata json files to the `elasticsearch` index.
 
+## Testing elastic search index
+
+* If you got this far, you can start running queries against your elastic search index. Install a `elasticsearch` client like `elasticvue` for your browser and execute some queries.
+
+![] (elasticvue.png)  
