@@ -5,19 +5,14 @@ require current_dir + '/../main/backend/index_helper'
 
 include IndexHelper
 
-serialized_data = generate_index_data(THUMBNAILS_FOLDER, '/Volumes/Data/Data/damage/metadata/Volumes/Pictures/2006/02/17/DSC_2155.NEF.json')
-p 'Indexing...'
-SearchClient.index(id: serialized_data[:id], index: "damage", body: serialized_data)
-get_result = SearchClient.get(id: serialized_data[:id], index: "damage") 
-raise "Get result is wrong" if get_result.empty?
-
 results = SearchClient.search(
 	index:'damage',
 	body: {
 		query: {
 			query_string: {
-				query: "lens:18-70*",
-				analyze_wildcard: true
+				query: "lens:SIGMA*",
+				analyze_wildcard: true,
+				allow_leading_wildcard: false
 			}
 		},
 		sort: { rating: "desc"}

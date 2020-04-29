@@ -54,9 +54,9 @@ From the root directory, install gems by running `bundle`.  Enter `sudo` passwor
 
 ## Elasticsearch setup
 * Edit `config/elasticsearch.rb` if you want to change the number of shards or replicas or if you installed `elasticsearch` in a non-standard port
-# Run `ruby create_index.rb`, just once, to create an `elasticsearch` index called `damage`
+# Run `ruby prepare_index.rb`, just once, to create an `elasticsearch` index called `damage`
 # Run `ruby load_mapping.rb` to load the mappings for fields in the EXIF to fields in the index.  Run this at least once after modifying the mappings
 
 ## Creating metadata indices
-# Run `ruby load_indexed_data.rb` to load the metadata json files to the `elasticsearch` index.
+# Run `ruby create_index.rb` to load the metadata json files to the `elasticsearch` index.
 

@@ -8,7 +8,7 @@ require 'json'
 file = File.read File.expand_path(File.dirname(File.dirname(__FILE__))) + '/image_list.json'
 files = JSON.parse file
 
-pool = Concurrent::FixedThreadPool.new(10)
+pool = Concurrent::FixedThreadPool.new(20)
 
 files.each do |file|
 	thumbnail_file = THUMBNAILS_FOLDER + file + '.png'

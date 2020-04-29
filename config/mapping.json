@@ -60,7 +60,7 @@
       "type": "double"
     },
     "iso": {
-      "type": "integer"
+      "type": "text"
     },
     "createDate": {
       "type": "date",
