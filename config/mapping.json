@@ -1,0 +1,81 @@
+{
+  "dynamic": "strict",
+  "properties": {
+    "id": {
+      "type": "keyword" 
+    },
+    "thumbnail": {
+      "type": "text"
+    },
+    "title": {
+      "type": "text",
+      "fields": {
+        "raw": {
+          "type": "keyword"
+        }
+      }
+    },
+    "description": {
+      "type": "text",
+      "fields": {
+        "raw": {
+          "type": "keyword"
+        }
+      }
+    },
+    "categories": {
+      "type": "text",
+      "fields": {
+        "raw": {
+          "type": "keyword"
+        }
+      }
+    },
+    "keywords": {
+      "type": "text",
+      "fields": {
+        "raw": {
+          "type": "keyword"
+        }
+      }
+    },
+    "rating": {
+      "type": "integer"
+    },
+    "fileType": {
+      "type": "text"
+    },
+    "model": {
+      "type": "text",
+      "fields": {
+        "raw": {
+          "type": "keyword"
+        }
+      }
+    },
+    "shutterSpeed": {
+      "type": "double"
+    },
+    "aperture": {
+      "type": "double"
+    },
+    "iso": {
+      "type": "integer"
+    },
+    "createDate": {
+      "type": "date",
+      "format": "yyyy-MM-dd"
+    },
+    "focalLength": {
+      "type": "text"
+    },
+    "lens": {
+      "type": "text",
+      "fields": {
+        "raw": {
+          "type": "keyword"
+        }
+      }
+      }
+  }
+}

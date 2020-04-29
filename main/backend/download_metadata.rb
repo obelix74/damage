@@ -21,6 +21,7 @@ files.each do |file|
 	   			p "Writing metadata to file #{metadata_file}"
 
 	   			tags = {}
+	   			tags[:id] = file
 				photo.tags.each do |tag|
 					tags[tag] = photo[tag]
 				end
