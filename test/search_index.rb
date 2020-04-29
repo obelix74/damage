@@ -10,7 +10,7 @@ results = SearchClient.search(
 	body: {
 		query: {
 			query_string: {
-				query: "lens:SIGMA*",
+				query: "lens:*",
 				analyze_wildcard: true,
 				allow_leading_wildcard: false
 			}

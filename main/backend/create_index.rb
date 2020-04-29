@@ -19,7 +19,6 @@ files.each do |file|
 				SearchClient.index(id: serialized_data[:id], index: "damage", body: serialized_data)
 			rescue => exception
 				p "Error creating index for #{metadata_file}"
-				raise exception
 			end
 	else
 		p "ERROR: Metadata file not found for #{file}"
