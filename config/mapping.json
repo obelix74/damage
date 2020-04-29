@@ -71,11 +71,12 @@
     },
     "lens": {
       "type": "text",
+      "fielddata": true,
       "fields": {
         "raw": {
           "type": "keyword"
         }
       }
-      }
+    }
   }
 }
