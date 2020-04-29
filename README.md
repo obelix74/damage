@@ -64,4 +64,4 @@ From the root directory, install gems by running `bundle`.  Enter `sudo` passwor
 
 * If you got this far, you can start running queries against your elastic search index. Install a `elasticsearch` client like `elasticvue` for your browser and execute some queries.
 
-![] (elasticvue.png)  
+![Elasticvue](elasticvue.png)  
